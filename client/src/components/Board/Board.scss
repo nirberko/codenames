@@ -1,0 +1,43 @@
+.c-Board {
+  width: 700px;
+  height: 500px;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    &__remaining {
+      span {
+        color: white;
+        &[data-team="blue"] {
+          color: blue;
+        }
+        &[data-team="red"] {
+          color: red;
+        }
+      }
+    }
+
+    &__current-turn {
+
+    }
+  }
+
+  ul {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 1rem;
+    list-style-type: none;
+    margin: 1rem 0 0 0;
+    padding: 0;
+    li {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: var(--color-mercury-noral);
+      cursor: pointer;
+      user-select: none;
+    }
+  }
+}
