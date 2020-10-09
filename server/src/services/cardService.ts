@@ -1,7 +1,7 @@
 import CardDAO from "../dao/CardDAO";
 import CardModel from '../models/CardModel';
 
-const createCard = ({ category_id, text }: {
+export const createCard = ({ category_id, text }: {
   category_id: string;
   text: string;
 }) => new Promise(async (resolve, reject) => {

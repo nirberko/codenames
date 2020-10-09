@@ -2,6 +2,7 @@ import colors from 'colors';
 import { Express } from "express";
 
 import mongooseLoader from './mongoose';
+import expressLoader from './express';
 
 interface LoadParams {
   loader: any;
@@ -25,6 +26,7 @@ export default async ({ expressApp }: { expressApp: Express }) => {
   console.group(`[Loaders] Starting...`);
 
   await load({ loader: mongooseLoader, name: 'MongoDB', app: expressApp });
+  await load({ loader: expressLoader, name: 'Express', app: expressApp });
 
   console.groupEnd();
   console.log(`[Loader] Finished`);
