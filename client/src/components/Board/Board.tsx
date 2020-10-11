@@ -2,30 +2,7 @@ import React from 'react';
 
 import './Board.scss';
 
-const worlds = [
-  "פרה",
-  "ילד",
-  "איש",
-  "מכבסה",
-  "פרה",
-  "ילד",
-  "איש",
-  "מכבסה",
-  "פרה",
-  "ילד",
-  "איש",
-  "מכבסה",
-  "פרה",
-  "ילד",
-  "איש",
-  "מכבסה",
-  "פרה",
-  "ילד",
-  "איש",
-  "מכבסה",
-]
-
-export const Board = () => {
+export const Board = ({ cards }) => {
   return (
     <div className="c-Board">
       <div className="c-Board__header">
@@ -42,8 +19,8 @@ export const Board = () => {
         </button>
       </div>
       <ul>
-        {worlds.map((word, index) => (
-          <li key={index}>{word}</li>
+        {cards.map(({ text }, index) => (
+          <li key={index}>{text}</li>
         ))}
       </ul>
     </div>

@@ -6,12 +6,16 @@ export const createCard = ({ category_id, text }: {
   text: string;
 }) => new Promise(async (resolve, reject) => {
    try {
-     const card = new CardModel({
+     return resolve(await CardModel.findOneAndUpdate({
        [CardDAO.FIELDS.TEXT]: text,
        [CardDAO.FIELDS.CATEGORY_ID]: category_id,
-     })
-
-     return await card.save()
+     }, {
+       [CardDAO.FIELDS.TEXT]: text,
+       [CardDAO.FIELDS.CATEGORY_ID]: category_id,
+     }, {
+       new: true,
+       upsert: true
+     }))
    } catch (err) {
      console.log(err);
      reject(err);

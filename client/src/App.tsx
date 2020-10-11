@@ -1,6 +1,8 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-import { BoardRoute } from "./routes/Board/Board";
+import { ReactQueryDevtools } from 'react-query-devtools'
+
+import { GameRoute } from "./routes/Game/Game";
 
 import 'normalize.css';
 import './App.scss';
@@ -8,8 +10,10 @@ import './App.scss';
 function App() {
   return (
     <div className="App">
+      <ReactQueryDevtools initialIsOpen={false} />
+
       <Switch>
-        <Route path="/" component={BoardRoute} />
+        <Route exact path="/game/:gameId" component={GameRoute} />
       </Switch>
     </div>
   );
